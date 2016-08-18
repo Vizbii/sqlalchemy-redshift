@@ -33,14 +33,14 @@ __all__ = ['CopyCommand', 'UnloadFromSelect', 'RedshiftDialect']
 # Regex for parsing and identity constraint out of adsrc, e.g.:
 #   "identity"(445178, 0, '1,1'::text)
 IDENTITY_RE = re.compile(r"""
-    "identity" \(
+    '?"identity" \(
       (?P<current>-?\d+)
       ,\s
       (?P<base>-?\d+)
       ,\s
       '(?P<seed>-?\d+),(?P<step>-?\d+)'
       .*
-    \)
+    \)'?
 """, re.VERBOSE)
 
 # Regex for SQL identifiers (valid table and column names)
